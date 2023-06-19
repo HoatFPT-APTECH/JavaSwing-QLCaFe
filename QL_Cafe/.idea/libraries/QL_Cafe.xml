@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="QL_Cafe">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/QL_Cafe.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
