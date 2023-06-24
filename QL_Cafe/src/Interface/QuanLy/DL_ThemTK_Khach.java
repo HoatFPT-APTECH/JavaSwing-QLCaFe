@@ -189,7 +189,7 @@ public class DL_ThemTK_Khach extends javax.swing.JDialog {
 
         int in = cn.AddKhachHang(kh)==true?1:0;
         if(in > 0){
-           Jp_QLKhackHang.kh.FillTable(-1);
+           Jp_QLKhackHang.kh.FillTable(-1,null);
            Jp_QLKhackHang.kh.updateUI();
 
             this.dispose();

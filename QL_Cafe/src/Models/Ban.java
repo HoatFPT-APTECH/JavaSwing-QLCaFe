@@ -10,8 +10,10 @@ package Models;
  * @author ThangIKCU
  */
 public class Ban {
-    private String  TenBan, TrangThai,TenKhachHang,sdt;
-    private int MaBan;
+    private String  TenBan, TrangThai,Gio=null;
+    private int MaBan,MaKhachHang=-1;
+
+ 
     
     public Ban(){
         this.MaBan =0;
@@ -24,13 +26,35 @@ public class Ban {
         this.TrangThai =trangthai;
     }
 
-    public Ban(String TenBan, String TrangThai, String TenKhachHang, String sdt, int MaBan) {
+    public Ban( int MaBan,String TenBan, String TrangThai, String gio,int MaKhachHang) {
         this.TenBan = TenBan;
         this.TrangThai = TrangThai;
-        this.TenKhachHang = TenKhachHang;
-        this.sdt = sdt;
         this.MaBan = MaBan;
+        this.Gio=gio;
+        this.MaKhachHang=MaKhachHang;
     }
+   
+  
+
+    public String getGio() {
+        return Gio;
+    }
+
+    public int getMaKhachHang() {
+        return MaKhachHang;
+    }
+
+    
+
+    public void setGio(String Gio) {
+        this.Gio = Gio;
+    }
+
+    public void setMaKhachHang(int MaKhachHang) {
+        this.MaKhachHang = MaKhachHang;
+    }
+
+ 
     
     public void SetMaBan(int ma){
         this.MaBan = ma;

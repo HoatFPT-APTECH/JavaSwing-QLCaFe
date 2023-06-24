@@ -25,7 +25,7 @@ public class Jp_QLKhackHang extends javax.swing.JPanel {
     public Jp_QLKhackHang() {
         initComponents();
         kh=this;
-        FillTable(-1);
+        FillTable(-1,null);
     }
 
     /**
@@ -47,6 +47,10 @@ public class Jp_QLKhackHang extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         lblthongtin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtTimKiem = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        cbbLoaiKhach = new javax.swing.JComboBox<>();
 
         tbBan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -122,16 +126,40 @@ public class Jp_QLKhackHang extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(51, 0, 51));
         jLabel2.setText("Tổng số khách hàng");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setText("Tìm kiếm khách hàng: ");
+
+        txtTimKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTimKiemActionPerformed(evt);
+            }
+        });
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyPressed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("Loại khách hàng: ");
+
+        cbbLoaiKhach.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Khách vãng lai", "Khách thân thiết", "Khách quý", " " }));
+        cbbLoaiKhach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbLoaiKhachActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(699, Short.MAX_VALUE)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -141,19 +169,34 @@ public class Jp_QLKhackHang extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblthongtin))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbbLoaiKhach, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bntThem, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bntSua, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bntXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 28, Short.MAX_VALUE)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                        .addGap(0, 139, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(cbbLoaiKhach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(bntThem, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,7 +211,7 @@ public class Jp_QLKhackHang extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
                         .addComponent(lblthongtin)))
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -191,8 +234,8 @@ public class Jp_QLKhackHang extends javax.swing.JPanel {
     private void tbBanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbBanMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbBanMouseClicked
-     public  void FillTable(int loai) {
-          ArrayList<KhachHang> arrTable = cn.GetDSKhachHang(loai);
+     public  void FillTable(int loai,String strTimkiem) {
+          ArrayList<KhachHang> arrTable = cn.GetDSKhachHang(loai,strTimkiem);
         DefaultTableModel tbmodel = new DefaultTableModel();
 
         tbmodel.addColumn("ID");
@@ -253,7 +296,7 @@ public class Jp_QLKhackHang extends javax.swing.JPanel {
                 boolean xoa = cn.DeletedKhachHang(khachhang.MaKhachHang);
 
                 if (xoa == true) {
-                    FillTable(-1);
+                    FillTable(-1,null);
 
                 }else
                 JOptionPane.showMessageDialog(null, "Không xóa được khách hàng !");
@@ -262,18 +305,41 @@ public class Jp_QLKhackHang extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_bntXoaActionPerformed
 
+    private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
+        // TODO add your handling code here:
+        String timkiem=this.txtTimKiem.getText();
+         int index=this.cbbLoaiKhach.getSelectedIndex();
+        FillTable(index-1,timkiem);
+        
+    }//GEN-LAST:event_txtTimKiemKeyPressed
+
+    private void txtTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTimKiemActionPerformed
+
+    private void cbbLoaiKhachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbLoaiKhachActionPerformed
+        // TODO add your handling code here:
+     String timkiem=this.txtTimKiem.getText();
+         int index=this.cbbLoaiKhach.getSelectedIndex();
+        FillTable(index-1,timkiem);
+    }//GEN-LAST:event_cbbLoaiKhachActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntSua;
     private javax.swing.JButton bntThem;
     private javax.swing.JButton bntXoa;
+    private javax.swing.JComboBox<String> cbbLoaiKhach;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblthongtin;
     private javax.swing.JTable tbBan;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 
   

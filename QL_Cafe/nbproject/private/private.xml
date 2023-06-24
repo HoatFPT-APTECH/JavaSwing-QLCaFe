@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/Dai_Hoc/Ky_6/Java/EProject/QL_Cafe/src/Interface/QuanLy/DL_SuaTK_Khach.java</file>
-            <file>file:/F:/Dai_Hoc/Ky_6/Java/EProject/QL_Cafe/src/Interface/QuanLy/Jp_QLKhackHang.java</file>
-            <file>file:/F:/Dai_Hoc/Ky_6/Java/EProject/QL_Cafe/src/Interface/QuanLy/DL_ThemTK_Khach.java</file>
+            <file>file:/F:/Dai_Hoc/Ky_6/Java/EProject/QL_Cafe/src/Models/Ban.java</file>
+            <file>file:/F:/Dai_Hoc/Ky_6/Java/EProject/QL_Cafe/src/Interface/BanHang/JpGoiMon.java</file>
+            <file>file:/F:/Dai_Hoc/Ky_6/Java/EProject/QL_Cafe/src/Mysql/ConnectSQL.java</file>
+            <file>file:/F:/Dai_Hoc/Ky_6/Java/EProject/QL_Cafe/src/Interface/BanHang/DGDatCho.java</file>
         </group>
     </open-files>
 </project-private>

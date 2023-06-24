@@ -64,7 +64,7 @@ public class ConnectSQL {
             ResultSet rs = st.executeQuery(sql);
             arrBan = new ArrayList<Ban>();
             while (rs.next()) {
-                Ban sp = new Ban(rs.getInt(1), rs.getString(2), rs.getString(3));
+                Ban sp = new Ban(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getInt(5));
                 arrBan.add(sp);
             }
         } catch (SQLException ex) {
@@ -76,6 +76,9 @@ public class ConnectSQL {
     public int UpdateBan(Ban b) {
         int update = 0;
         String sql = "UPDATE ban SET TenBan = '" + b.GetTenBan() + "', TrangThai = '" + b.GetTrangThai() + "' WHERE MaBan = '" + b.GetMaBan() + "'";
+        if(b.getMaKhachHang()!=-1 && b.getGio()!=null){
+         sql = "UPDATE ban SET TenBan = '" + b.GetTenBan() + "', TrangThai = '" + b.GetTrangThai() + "', MaKhachHang="+b.getMaKhachHang()+", Gio='"+b.getGio()+"' WHERE MaBan = '" + b.GetMaBan() + "'";
+        }
         try {
             Statement st = cn.createStatement();
             update = st.executeUpdate(sql);
@@ -922,15 +925,20 @@ public class ConnectSQL {
 
     }
     // tbl KhachHang
-    public ArrayList<KhachHang> GetDSKhachHang( int loai){
+    public ArrayList<KhachHang> GetDSKhachHang( int loai,String strTimkiem){
          ArrayList<KhachHang> data= new ArrayList<>();
          String sql;
-        if (loai == -1) {
+        if (loai == -1 && strTimkiem==null) {
             sql = "SELECT * FROM `khachhang`  WHERE Deleted=0";
-        } else {
-            sql = "SELECT * FROM `khachhang`  WHERE LoaiKH="+loai+" Deleted=0";
+        } else if(loai != -1 && strTimkiem==null ){
+            sql = "SELECT * FROM `khachhang`  WHERE LoaiKH="+loai+" AND  Deleted=0";
         }
-
+        else if( loai == -1 && strTimkiem!=null){
+           sql = "SELECT * FROM `khachhang`  WHERE Deleted=0 AND Ten LIKE '%"+strTimkiem+"%';";  
+        }
+        else 
+         sql = "SELECT * FROM `khachhang`  WHERE Deleted=0 AND LoaiKH="+loai+" AND Ten LIKE '%"+strTimkiem+"%';";  
+ 
         try {
 
             PreparedStatement pst = (PreparedStatement) cn.prepareStatement(sql);

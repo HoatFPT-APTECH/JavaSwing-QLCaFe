@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package Interface.QuanLy;
+package Interface.BanHang;
 
+import Interface.QuanLy.*;
 import Models.KhachHang;
 import Mysql.ConnectSQL;
 import javax.swing.JOptionPane;
@@ -12,20 +13,14 @@ import javax.swing.JOptionPane;
  *
  * @author hoatd
  */
-public class DL_SuaTK_Khach extends javax.swing.JDialog {
-     ConnectSQL cn = new ConnectSQL();
-       KhachHang khachhang;
+public class DL_ThemTK_Khach extends javax.swing.JDialog {
+        ConnectSQL cn = new ConnectSQL();
     /**
-     * Creates new form DL_SuaTK_Khach
+     * Creates new form DL_ThemTK_Khach
      */
-    public DL_SuaTK_Khach(java.awt.Frame parent, boolean modal,int ma) {
+    public DL_ThemTK_Khach(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-     khachhang= cn.GetDetailKhachHang(ma);
-        this.txtTen.setText(khachhang.Ten);
-        this.txtDiaChi.setText(khachhang.DiaChi);
-        this.txtSDT.setText(khachhang.sdt);
-        this.cbbLoaiKH.setSelectedIndex(khachhang.LoaiKH);
     }
 
     /**
@@ -48,11 +43,11 @@ public class DL_SuaTK_Khach extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        cbbLoaiKH = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153), 2));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 0), 2));
 
         txtDiaChi.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -83,18 +78,13 @@ public class DL_SuaTK_Khach extends javax.swing.JDialog {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Sửa tài khoản khách");
+        jLabel1.setText("Thêm tài khoản khách");
 
         jLabel2.setText("Tên khách: ");
 
         jLabel5.setText("Loại khách hàng: ");
 
-        cbbLoaiKH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Khách vãng lai", "Khách thân thiết", "Khách quý", " " }));
-        cbbLoaiKH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbLoaiKHActionPerformed(evt);
-            }
-        });
+        jLabel6.setText("Khách vãng lai");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,19 +100,15 @@ public class DL_SuaTK_Khach extends javax.swing.JDialog {
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cbbLoaiKH, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jButton1))
-                                    .addComponent(txtDiaChi, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSDT, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTen, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(91, 91, 91))))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton1))
+                            .addComponent(txtDiaChi, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSDT, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTen, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(91, 91, 91))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 44, Short.MAX_VALUE)
                         .addComponent(jButton2)
@@ -152,8 +138,8 @@ public class DL_SuaTK_Khach extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(cbbLoaiKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
@@ -175,7 +161,7 @@ public class DL_SuaTK_Khach extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtDiaChiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiaChiKeyReleased
-
+     
     }//GEN-LAST:event_txtDiaChiKeyReleased
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -189,14 +175,15 @@ public class DL_SuaTK_Khach extends javax.swing.JDialog {
             txtSDT.requestFocus();
             return;
         }
+       
+        
+        KhachHang kh=new KhachHang (-1,this.txtTen.getText(),this.txtSDT.getText(),this.txtDiaChi.getText(),0);
 
-        KhachHang kh=new KhachHang (khachhang.MaKhachHang,this.txtTen.getText(),this.txtSDT.getText(),this.txtDiaChi.getText(),this.cbbLoaiKH.getSelectedIndex());
-
-       ;
-        if(cn.UpdateKhachHang(kh)){
-            Jp_QLKhackHang.kh.FillTable(-1,null);
-            Jp_QLKhackHang.kh.updateUI();
-
+        int in = cn.AddKhachHang(kh)==true?1:0;
+        if(in > 0){
+            String tk= JpTimKiemKH.tkKH.getTxtTimKiem();
+          JpTimKiemKH.tkKH.FillTable(-1, tk);
+            JpTimKiemKH.tkKH.updateUI();
             this.dispose();
         }
 
@@ -206,10 +193,6 @@ public class DL_SuaTK_Khach extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void cbbLoaiKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbLoaiKHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbLoaiKHActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,20 +211,21 @@ public class DL_SuaTK_Khach extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DL_SuaTK_Khach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DL_ThemTK_Khach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DL_SuaTK_Khach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DL_ThemTK_Khach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DL_SuaTK_Khach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DL_ThemTK_Khach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DL_SuaTK_Khach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DL_ThemTK_Khach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DL_SuaTK_Khach dialog = new DL_SuaTK_Khach(new javax.swing.JFrame(), true,0);
+                DL_ThemTK_Khach dialog = new DL_ThemTK_Khach(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -254,7 +238,6 @@ public class DL_SuaTK_Khach extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbbLoaiKH;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -262,6 +245,7 @@ public class DL_SuaTK_Khach extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtSDT;

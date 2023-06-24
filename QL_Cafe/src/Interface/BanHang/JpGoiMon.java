@@ -9,6 +9,7 @@ import Interface.Run;
 import Models.Ban;
 import Models.DsOrder;
 import Models.HoaDon;
+import Models.KhachHang;
 import Models.ThucDon;
 import Mysql.ConnectSQL;
 import java.awt.Color;
@@ -38,6 +39,8 @@ import javax.swing.JPanel;
 public final class JpGoiMon extends javax.swing.JPanel {
     String TenBan;
     int MaBan;
+    Ban ban;
+    KhachHang khachhang;
     int MaHD, tienmon = 0, tongtien = 0;
     ConnectSQL cn = new ConnectSQL();
     HoaDon arrhd;
@@ -56,8 +59,13 @@ public final class JpGoiMon extends javax.swing.JPanel {
         gm = this;
         MaBan = maban;
         TenBan = tenban;
-        
-        jpDsMon.setVisible(false);
+        LoadPropertise(trangthai, tenban, maban);
+             
+    }
+    public void LoadPropertise(String trangthai, String tenban, int maban){
+               ban= cn.GetBan(maban).get(0);
+                        khachhang= cn.GetDetailKhachHang(ban.getMaKhachHang());
+          jpDsMon.setVisible(false);
         jpThongTinThanhToan.setVisible(false);
         jScrollPane1.setVisible(false);
         
@@ -68,17 +76,28 @@ public final class JpGoiMon extends javax.swing.JPanel {
             MaHD = arrhd.GetMaHD();
             lblgioden.setText(df.format(arrhd.GetGioDen()));  
         }
-        lblTenBan.setText(tenban);
-        lbltrangthai.setText(trangthai);
+        lblTenBan.setText(ban.GetTenBan());
+        lbltrangthai.setText(ban.GetTrangThai());
 
         if(lbltrangthai.getText().equals("Trống")){
             btndatban.setText("Đặt chỗ");
+            lblTenKhach.setText("....");
+            lblgioden.setText("....");
             return;
             
         }if(lbltrangthai.getText().equals("Đã đặt trước")){
             btndatban.setText("Hủy đặt");
+  
+ 
+         
+            lblSDT.setText(khachhang.sdt);
+
+            lblTenKhach.setText(khachhang.Ten);
+            lblgioden.setText(ban.getGio());
             return;
         }if(lbltrangthai.getText().equals("Đang phục vụ")){
+         
+             lblTenKhach.setText(khachhang.Ten);
             btndatban.setVisible(false);
             btnthugon.setVisible(false);
             jpThucDon thucdon = new jpThucDon();
@@ -87,9 +106,11 @@ public final class JpGoiMon extends javax.swing.JPanel {
             jpthucdon.removeAll();
             jpthucdon.add(thucdon);
             jpthucdon.updateUI();
-        }         
+        }  
+         jpthucdon.removeAll();
+            jpthucdon.add(jLabel1);
+            jpthucdon.updateUI();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,6 +142,10 @@ public final class JpGoiMon extends javax.swing.JPanel {
         btnthugon = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jpDsMon = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        lblTenKhach = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lblSDT = new javax.swing.JLabel();
         jpthucdon = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -140,11 +165,11 @@ public final class JpGoiMon extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 0));
-        jLabel2.setText("Giờ đến:");
+        jLabel2.setText("Giờ đến :");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel3.setText("Status:");
+        jLabel3.setText("Tình trạng:");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/logo_goi_mon.png"))); // NOI18N
 
@@ -286,49 +311,70 @@ public final class JpGoiMon extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(jpDsMon);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("Tên khách : ");
+
+        lblTenKhach.setText(".....");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setText("Số điện thoại : ");
+
+        lblSDT.setText(".....");
+
         javax.swing.GroupLayout jpThongTinBanLayout = new javax.swing.GroupLayout(jpThongTinBan);
         jpThongTinBan.setLayout(jpThongTinBanLayout);
         jpThongTinBanLayout.setHorizontalGroup(
             jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpThongTinBanLayout.createSequentialGroup()
+            .addGroup(jpThongTinBanLayout.createSequentialGroup()
+                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpThongTinBanLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpThongTinBanLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jpThongTinThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jpThongTinBanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpThongTinBanLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpThongTinBanLayout.createSequentialGroup()
-                                .addComponent(lbltrangthai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(260, 260, 260))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblTenBan)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jpThongTinBanLayout.createSequentialGroup()
-                                .addComponent(lblgioden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(227, 227, 227))))
-                    .addGroup(jpThongTinBanLayout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTenBan)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(8, 8, 8)
+                                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel3))
+                                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpThongTinBanLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jpThongTinBanLayout.createSequentialGroup()
+                                                .addComponent(lbltrangthai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(112, 112, 112))
+                                            .addComponent(lblSDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(jpThongTinBanLayout.createSequentialGroup()
+                                                .addComponent(lblgioden, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addGroup(jpThongTinBanLayout.createSequentialGroup()
+                                        .addGap(5, 5, 5)
+                                        .addComponent(lblTenKhach, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpThongTinBanLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
             .addGroup(jpThongTinBanLayout.createSequentialGroup()
-                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpThongTinBanLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jpThongTinThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpThongTinBanLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jpThongTinBanLayout.createSequentialGroup()
-                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpThongTinBanLayout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(btnthugon, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpThongTinBanLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(94, 94, 94)
+                .addComponent(btnthugon, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jpThongTinBanLayout.setVerticalGroup(
@@ -339,25 +385,33 @@ public final class JpGoiMon extends javax.swing.JPanel {
                     .addGroup(jpThongTinBanLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(lblTenBan)))
-                .addGap(18, 18, 18)
-                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblgioden))
-                .addGap(18, 18, 18)
-                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lbltrangthai))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpThongTinThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lblTenKhach))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSDT)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblgioden)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpThongTinBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbltrangthai)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(jpThongTinThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnthugon, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jpthucdon.setBackground(Color.decode("#e6e6e6"));
@@ -374,7 +428,7 @@ public final class JpGoiMon extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpThongTinBan, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpThongTinBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jpthucdon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -559,18 +613,27 @@ public final class JpGoiMon extends javax.swing.JPanel {
     }//GEN-LAST:event_btngoiActionPerformed
 
     private void btndatbanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndatbanActionPerformed
-        if(lbltrangthai.getText().equals("Đã đặt trước")){
-            lbltrangthai.setText("Trống");
-            btndatban.setText("Đặt chỗ");           
-            String TrangThai = "Trống";
-            Ban b = new Ban(MaBan, TenBan, TrangThai);
-            int Update = cn.UpdateBan(b);
+        if(lbltrangthai.getText().equals("Đã đặt trước") ){
+       JOptionPane.showConfirmDialog(btnthugon, "Bạn có chắc muốn huỷ bàn");
+               Ban ban= cn.GetBan(MaBan).get(0);
+               ban.setGio(null);
+               ban.setMaKhachHang(-1);
+               ban.SetTrangThai("Trống");
+               if(cn.UpdateBan(ban)>0)
+                   JOptionPane.showMessageDialog(btnthugon, "Huỷ bàn thành công");
+              JpGoiMon.gm. LoadPropertise(TenBan, TenBan, MaBan);
+               JpGoiMon.gm.updateUI();
             jpBanHang.bh.FillBan();
             jpBanHang.bh.updateUI();
-        }else{
+        }
+     
+        else{
             lbltrangthai.setText("Đã đặt trước");
             btndatban.setText("Hủy đặt");
             String TrangThai = "Đã đặt trước";
+            jpthucdon.removeAll();
+            JpTimKiemKH jpTimkiemkh= new JpTimKiemKH();
+            jpthucdon.add(jpTimkiemkh);
             Ban b = new Ban(MaBan, TenBan, TrangThai);
             int Update = cn.UpdateBan(b);
             jpBanHang.bh.FillBan();
@@ -599,8 +662,10 @@ public final class JpGoiMon extends javax.swing.JPanel {
     private javax.swing.JButton btngoi;
     private javax.swing.JButton btnthugon;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -613,7 +678,9 @@ public final class JpGoiMon extends javax.swing.JPanel {
     private javax.swing.JPanel jpThongTinBan;
     private javax.swing.JPanel jpThongTinThanhToan;
     private javax.swing.JPanel jpthucdon;
+    private javax.swing.JLabel lblSDT;
     private javax.swing.JLabel lblTenBan;
+    private javax.swing.JLabel lblTenKhach;
     private javax.swing.JLabel lblgiamgia;
     private javax.swing.JLabel lblgioden;
     private javax.swing.JLabel lbltienmon;
