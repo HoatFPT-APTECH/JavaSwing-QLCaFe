@@ -13,7 +13,7 @@ public class NhapXuatNL {
     public int MaNhapXuatNL;
     public int MaNguyenLieu;
     public int MaTaiKhoan;
-     public int loai;
+     public int loai;// 0 Là xuất, 1 là nhập 
      public int SoLuong;
      public String NgayGio;
 

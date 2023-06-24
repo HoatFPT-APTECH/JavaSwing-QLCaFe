@@ -22,6 +22,7 @@ public class JpQuanLy extends javax.swing.JPanel {
     Jp_QLThucDon td;
     Jp_QLNhomMon nm;
     Jp_QLTaiKhoan nv;
+    Jp_QLKhackHang kh;
     public void LoadPanel(int i){
         jpql.removeAll();
         switch (i){ 
@@ -48,7 +49,13 @@ public class JpQuanLy extends javax.swing.JPanel {
                     nv = new Jp_QLTaiKhoan();
                 }
                 jpql.add(nv);                
-                break;                
+                break;  
+            case 5:
+                if(kh==null){
+                    kh=new Jp_QLKhackHang();
+                }
+                jpql.add(kh);
+                break;
             default:
                 break;
                 
@@ -70,6 +77,7 @@ public class JpQuanLy extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jpql = new javax.swing.JPanel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -124,8 +132,8 @@ public class JpQuanLy extends javax.swing.JPanel {
 
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jButton8.setForeground(new java.awt.Color(51, 51, 0));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/qluser.png"))); // NOI18N
-        jButton8.setText("QUẢN LÝ TÀI KHOẢN");
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/customer-satisfaction.png"))); // NOI18N
+        jButton8.setText("QUẢN LÝ KHÁCH HÀNG");
         jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -134,6 +142,21 @@ public class JpQuanLy extends javax.swing.JPanel {
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(51, 51, 0));
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/qluser.png"))); // NOI18N
+        jButton9.setText("QUẢN LÝ TÀI KHOẢN");
+        jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton9.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButton9.setIconTextGap(10);
+        jButton9.setPreferredSize(new java.awt.Dimension(0, 35));
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
             }
         });
 
@@ -147,7 +170,8 @@ public class JpQuanLy extends javax.swing.JPanel {
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -159,9 +183,11 @@ public class JpQuanLy extends javax.swing.JPanel {
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(294, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jpql.setLayout(new java.awt.BorderLayout());
@@ -206,8 +232,13 @@ public class JpQuanLy extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        LoadPanel(4);  // TODO add your handling code here:
+        LoadPanel(5);  // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+         LoadPanel(4);
+    }//GEN-LAST:event_jButton9ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -215,6 +246,7 @@ public class JpQuanLy extends javax.swing.JPanel {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jpql;

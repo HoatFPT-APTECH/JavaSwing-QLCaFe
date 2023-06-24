@@ -7,6 +7,7 @@ package Interface.Kho;
 
 import Interface.Run;
 import Models.NguyenLieu;
+import Models.NhapXuatNL;
 import Models.TaiKhoan;
 import Mysql.ConnectSQL;
 import java.time.LocalDate;
@@ -201,7 +202,7 @@ public class DGLNhap extends javax.swing.JDialog {
         else{
             int slXuat=Integer.parseInt(this.txtSoLuong.getText());
             this.nguyenlieu.SLTonKho+=slXuat;
-            if(cn.UpdateNguyenLieu(nguyenlieu)){
+            if(cn.UpdateNguyenLieu(nguyenlieu) && cn.AddNhapXuatNL(new NhapXuatNL(-1, nguyenlieu.MaNguyenLieu, taikhoan.GetID(), 1, slXuat, ""))){
                 JOptionPane.showMessageDialog(rootPane, "Cập nhật dữ liệu cho nguyên liệu : "+ nguyenlieu.Ten+" thành công. ","Thành công",JOptionPane.INFORMATION_MESSAGE);
                 JpNhapXuatNL.jpnhapxuatNL.FillTable(null);
                 JpNhapXuatNL.jpnhapxuatNL.updateUI();

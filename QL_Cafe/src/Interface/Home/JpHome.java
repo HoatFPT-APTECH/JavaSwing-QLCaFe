@@ -5,6 +5,12 @@
  */
 package Interface.Home;
 
+import Models.Ban;
+import Mysql.ConnectSQL;
+import static java.lang.Thread.sleep;
+import java.util.ArrayList;
+import java.util.Calendar;
+
 /**
  *
  * @author TRUNG HÒA
@@ -18,6 +24,7 @@ public class JpHome extends javax.swing.JPanel {
         initComponents();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,10 +41,10 @@ public class JpHome extends javax.swing.JPanel {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1255, 600));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/coffee-twitter-background.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/HomeBackground.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(1258, 519));
         jLabel1.setMinimumSize(new java.awt.Dimension(1258, 519));
-        jLabel1.setPreferredSize(new java.awt.Dimension(1258, 519));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1258, 600));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -45,13 +52,11 @@ public class JpHome extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -62,7 +67,9 @@ public class JpHome extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

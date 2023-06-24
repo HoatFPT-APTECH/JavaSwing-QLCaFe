@@ -106,12 +106,12 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnBanHang" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnKho" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnKho" min="-2" pref="142" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnQuanLy" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="btnThongKe" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="btnThongKe" min="-2" pref="132" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnThietLap" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -120,7 +120,7 @@
                                       <Component id="lblpv" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbldat" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="106" max="32767" attributes="0"/>
+                                  <EmptySpace pref="147" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -154,7 +154,7 @@
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="btnBanHang" alignment="3" max="32767" attributes="0"/>
                                   <Component id="btnTrangChu" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnKho" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="btnKho" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                                   <Component id="btnQuanLy" alignment="3" max="32767" attributes="0"/>
                                   <Component id="btnThongKe" alignment="3" max="32767" attributes="0"/>
                                   <Component id="btnThietLap" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -202,7 +202,7 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Interface/Images/Settings-L-icon.png"/>
+              <Image iconType="3" name="/Interface/Images/settings.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="THI&#x1ebe;T L&#x1eac;P"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -222,7 +222,7 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Interface/Images/icon-hoc-nau-an-Huong-nghiep-a-au-2015.png"/>
+              <Image iconType="3" name="/Interface/Images/admin.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="QU&#x1ea2;N L&#xdd;"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -267,7 +267,7 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Interface/Images/thongke.png"/>
+              <Image iconType="3" name="/Interface/Images/pie-chart.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="TH&#x1ed0;NG K&#xca;"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -287,7 +287,7 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Interface/Images/kho.png"/>
+              <Image iconType="3" name="/Interface/Images/warehouse.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="KHO-NVL"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

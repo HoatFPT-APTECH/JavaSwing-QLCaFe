@@ -99,7 +99,7 @@
                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="245" max="32767" attributes="0"/>
+                  <EmptySpace pref="266" max="32767" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -109,9 +109,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ph&#x1ea7;n m&#x1ec1;m &#x111;&#x1b0;&#x1ee3;c ph&#xe1;t tri&#x1ec3;n b&#x1edb;i team AppLeader tr&#x1ef1;c thu&#x1ed9;c t&#x1ed5;ng c&#xf4;ng ty Trung H&#xf2;a."/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -177,7 +174,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ph&#x1ea1;m Trung H&#xf2;a,Tr&#x1ea7;n V&#x103;n Th&#x1eaf;ng, Nguy&#x1ec5;n Th&#x1ecb; Xuy&#x1ebf;n, Ph&#x1ea1;m Tu&#x1ea5;n Qu&#xe2;n."/>
+            <Property name="text" type="java.lang.String" value="Mai Huy Ho&#x1ea1;t, Nguy&#x1ec5;n T&#xe2;n D&#x169;ng , T&#xe2;n"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -187,18 +184,15 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tr&#x1b0;&#x1edd;ng h&#x1ee3;p c&#x1ed1; t&#xec;nh thu l&#x1ee3;i nhu&#x1ead;n t&#x1eeb; ph&#x1ea7;n m&#x1ec1;m c&#x1ee7;a ch&#xfa;ng t&#xf4;i th&#xec; ph&#x1ea3;i chia &#x111;&#xf4;i.Kh&#xf4;ng th&#xec; &#x111;&#x1eeb;ng c&#xf3; tr&#xe1;ch."/>
+            <Property name="text" type="java.lang.String" value="Tr&#x1b0;&#x1edd;ng h&#x1ee3;p c&#x1ed1; t&#xec;nh thu l&#x1ee3;i nhu&#x1ead;n t&#x1eeb; ph&#x1ea7;n m&#x1ec1;m c&#x1ee7;a ch&#xfa;ng t&#xf4;i th&#xec; ph&#x1ea3;i chia &#x111;&#xf4;i. Kh&#xf4;ng th&#xec; &#x111;&#x1eeb;ng c&#xf3; h&#x1ecf;i t&#x1ea1;i sao m&#x1eb9; b&#x1ea1;n l&#xe0; ai ."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Copyright &#xa9; 2016 Trung H&#xf2;a Tek technologies co. ltd. all rights reserved "/>
+            <Property name="text" type="java.lang.String" value="Hoat&apos;s Team b&#xe0;i t&#x1ead;p l&#x1edb;n."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Website:http://thanghoacoffeemusic.com"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>

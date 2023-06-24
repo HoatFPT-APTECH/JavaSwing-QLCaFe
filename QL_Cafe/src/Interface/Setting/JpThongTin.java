@@ -42,8 +42,6 @@ public class JpThongTin extends javax.swing.JPanel {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1035, 400));
 
-        jLabel1.setText("Phần mềm được phát triển bới team AppLeader trực thuộc tổng công ty Trung Hòa.");
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 51, 51));
         jLabel2.setText("Coffee Manage Professional");
@@ -74,15 +72,13 @@ public class JpThongTin extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 0, 51));
-        jLabel4.setText("Phạm Trung Hòa,Trần Văn Thắng, Nguyễn Thị Xuyến, Phạm Tuấn Quân.");
+        jLabel4.setText("Mai Huy Hoạt, Nguyễn Tân Dũng , Tân");
 
         jLabel5.setText("   Phần mềm được phát triển dựa trên mã nguồn mở Java.Chúng tôi phát hành miễn phí.Nghiêm cấm hành vi sao chép hoặc kinh doanh bất hợp pháp.");
 
-        jLabel6.setText("Trường hợp cố tình thu lợi nhuận từ phần mềm của chúng tôi thì phải chia đôi.Không thì đừng có trách.");
+        jLabel6.setText("Trường hợp cố tình thu lợi nhuận từ phần mềm của chúng tôi thì phải chia đôi. Không thì đừng có hỏi tại sao mẹ bạn là ai .");
 
-        jLabel8.setText("Copyright © 2016 Trung Hòa Tek technologies co. ltd. all rights reserved ");
-
-        jLabel9.setText("Website:http://thanghoacoffeemusic.com");
+        jLabel8.setText("Hoat's Team bài tập lớn.");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/cooltext171088793851573.png"))); // NOI18N
 
@@ -137,7 +133,7 @@ public class JpThongTin extends javax.swing.JPanel {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 266, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addContainerGap())
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

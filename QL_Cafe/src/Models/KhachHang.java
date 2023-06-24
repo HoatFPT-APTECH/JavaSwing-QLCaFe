@@ -14,12 +14,31 @@ public class KhachHang {
     public String Ten;
     public String sdt;
     public String DiaChi;
+    public int LoaiKH;
+    public int Deleted=0;
 
-    public KhachHang(int MaKhachHang, String Ten, String sdt, String DiaChi) {
+    public KhachHang(int MaKhachHang, String Ten, String sdt, String DiaChi, int LoaiKH) {
         this.MaKhachHang = MaKhachHang;
         this.Ten = Ten;
         this.sdt = sdt;
         this.DiaChi = DiaChi;
+        this.LoaiKH = LoaiKH;
     }
+
+    public KhachHang(int MaKhachHang, String Ten, String sdt, String DiaChi, int LoaiKH,int deleted) {
+        this.MaKhachHang = MaKhachHang;
+        this.Ten = Ten;
+        this.sdt = sdt;
+        this.DiaChi = DiaChi;
+        this.LoaiKH = LoaiKH;
+        this.Deleted=deleted;
+    }
+
+    public KhachHang() {
+    }
+    
+
+
+ 
     
 }
